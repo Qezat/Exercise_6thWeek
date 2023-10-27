@@ -47,8 +47,16 @@ function creatTable(Array) {
         const tdTag = document.createElement("td");
         const tdTag_2 = document.createElement("td");
         thTag.textContent = element;
-        tdTag.textContent = Obj[element];
-        tdTag_2.textContent = Array[1][element];
+
+        
+        if (element === "website") {
+            tdTag.appendChild(createLinkIfURL(Obj[element]));
+            tdTag_2.appendChild(createLinkIfURL(Array[1][element]));
+        } else {
+            tdTag.textContent = Obj[element];
+            tdTag_2.textContent = Array[1][element];
+        }
+
 
         tableTag.appendChild(trTag);
 
@@ -68,4 +76,20 @@ function displayCompanyList(){
 
         ul.appendChild(li);
     });
+}
+
+function isURL(str) {
+    const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+    return urlRegex.test(str);
+}
+
+function createLinkIfURL(value) {
+    if (isURL(value)) {
+        const link = document.createElement("a");
+        link.href = value;
+        link.textContent = value;
+        return link;
+    } else {
+        return document.createTextNode(value);
+    }
 }
