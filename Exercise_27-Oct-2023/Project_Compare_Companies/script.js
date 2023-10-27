@@ -10,15 +10,16 @@ let companies = [];
 window.addEventListener("load", async (event) => {
     let response = await fetch("data.json");
     companies = await response.json();
-    console.log(companies);
+
+    displayCompanyList();
+
     compareBtn.addEventListener("click", comparison);
+    
     formTag.addEventListener("submit", (e) => {
         e.preventDefault();
         comparison();
     })
   });
-
-
 
 function findCompany(input) {
 
@@ -56,6 +57,15 @@ function creatTable(Array) {
         trTag.appendChild(tdTag);
         trTag.appendChild(tdTag_2);
     }
-    
-   
+}
+
+function displayCompanyList(){
+    const ul = document.querySelector('ul');
+
+    companies.forEach(c => {
+        const li = document.createElement('li');
+        li.innerHTML = c.name;
+
+        ul.appendChild(li);
+    });
 }
