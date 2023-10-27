@@ -8,6 +8,7 @@ let companies = [];
 window.addEventListener("load", async (event) => {
     let response = await fetch("data.json");
     companies = await response.json();
+    displayCompanyList();
     formTag.addEventListener("submit", (e) => {
         e.preventDefault();
         comparison();
@@ -51,7 +52,7 @@ function creatTable(Array) {
         const thTag = document.createElement("th");
         const tdTag = document.createElement("td");
         const tdTag_2 = document.createElement("td");
-        thTag.textContent = element;
+        thTag.textContent = createHeadingName(element);
         tdTag.textContent = Obj[element];
         tdTag_2.textContent = Array[1][element];
         tableTag.appendChild(trTag);
@@ -61,3 +62,25 @@ function creatTable(Array) {
     }
 }
 
+function displayCompanyList(){
+    const ul = document.querySelector('ul');
+    companies.forEach(c => {
+        const li = document.createElement('li');
+        li.innerHTML = c.name;
+        ul.appendChild(li);
+    });
+}
+
+function createHeadingName(source){
+    const result = Array();
+
+    result.push(source[0].toUpperCase());
+    for(let i = 1; i < source.length; i++){
+        if (source[i] === source[i].toUpperCase()){
+            result.push(' ');
+        }
+        result.push(source[i]);
+    }
+
+    return result.join('');
+}
