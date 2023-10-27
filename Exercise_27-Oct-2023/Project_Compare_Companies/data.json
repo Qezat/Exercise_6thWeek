@@ -1,29 +1,55 @@
 [
     {
-    "name": "EFG Bank",
-    "contactPersons":"Bianca Soldà",
-    "companySize":"",
-    "duration":"",
-    "domain":"IT Service Management department",
-    "internshipCount":2,
-    "location":"3, Avenue de Rumine - 1005 Lausanne",
-    "positions":"IT Suporter",
-    "skills":"",
-    "website":"https://www.efginternational.com/ch",
-    "interviewLanguages":"English"
+        "name": "EFG Bank",
+        "contactPersons":["Bianca Soldà"],
+        "companySize":"",
+        "duration":"",
+        "domain":"IT Service Management department",
+        "internshipCount":"2",
+        "location":"3, Avenue de Rumine - 1005 Lausanne",
+        "positions":"IT Suporter",
+        "skills":[""],
+        "website":"https://www.efginternational.com/ch",
+        "interviewLanguages":"English"
     },
-{
-    "name": "EFG Bank",
-    "contactPersons":"Bianca Soldà",
-    "companySize":"",
-    "duration":"",
-    "domain":"IT Service Management department",
-    "internshipCount":2,
-    "location":"3, Avenue de Rumine - 1005 Lausanne",
-    "positions":"IT Suporter",
-    "skills":"",
-    "website":"https://www.efginternational.com/ch",
-    "interviewLanguages":"English"
+    {
+        "name": "Exoscale",
+        "contactPersons":["Loic Lambiel", "Pascal Blanchut"],
+        "companySize":"~75",
+        "duration":"",
+        "domain":"IT Service Management department",
+        "internshipCount":"2",
+        "location":"Boulevard de Grancy 19 1006 Lausanne-Switzerland",
+        "positions":"IT support / Systems & Networks Managemen",
+        "skills":"",
+        "website":"https://www.exoscale.com",
+        "interviewLanguages":["English", "French"]
+    },
+    {
+        "name": "Groupe E SA",
+        "contactPersons":["Patrick Fugier"],
+        "companySize":"~35",
+        "duration":"",
+        "domain":"The PowerPlatform Team",
+        "internshipCount":"1",
+        "location":"Boulevard de Grancy 19 1006 Lausanne-Switzerland",
+        "positions":"Microsoft Power Platform",
+        "skills":"No/Low Code experience in Microsoft and ServiceNow environnement",
+        "website":"https://www.groupe-e.ch/fr",
+        "interviewLanguages":["English", "French"]
+    },
+    {
+        "name": "Loyco",
+        "contactPersons":["Sebastien", "Sylvain"],
+        "companySize":"~131",
+        "duration":"9",
+        "domain":"The PowerPlatform Team",
+        "internshipCount":"1",
+        "location":"Boulevard de Grancy 19 1006 Lausanne-Switzerland",
+        "positions":"Microsoft Power Platform",
+        "skills":"No/Low Code experience in Microsoft and ServiceNow environnement",
+        "website":"https://www.groupe-e.ch/fr",
+        "interviewLanguages":["English", "French"]
     }
 
 ]
