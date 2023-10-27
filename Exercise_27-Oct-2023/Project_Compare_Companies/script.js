@@ -23,6 +23,8 @@ window.addEventListener("load", async (event) => {
     let response = await fetch("data.json");
     companies = await response.json();
     compareBtn.addEventListener("click", comparison);
+
+    displayCompaniesList();
   });
 
 function findCompany(input) {
@@ -42,4 +44,15 @@ function comparison () {
     trName.appendChild(tdName1);
     trName.appendChild(tdName2);
 
+}
+
+function displayCompaniesList(){
+    const ul = document.querySelector('ul');
+    const listItems = companies.map(c => {
+            const li = document.createElement('li');
+            li.innerHTML = c.name;
+            return li;
+        });
+    console.log(listItems)
+    listItems.forEach(li => ul.appendChild(li));
 }
