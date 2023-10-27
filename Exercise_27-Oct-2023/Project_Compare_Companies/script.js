@@ -11,6 +11,7 @@ window.addEventListener("load", async (event) => {
     displayCompanyList();
     formTag.addEventListener("submit", (e) => {
         e.preventDefault();
+        tableTag.innerHTML = '';
         comparison();
     })
   });
@@ -36,14 +37,13 @@ function comparison () {
         warning.textContent = "Please Enter a valide input!";
         return;
     }
-
     const companInfo = [company1[0], company2[0]];
     console.log(companInfo);
     creatTable(companInfo);
 }
 
 function creatTable(Array) {
-    tableTag.innerHTML = '';
+    
     let Obj = Array[0];
     console.log(Obj);
     for(let element in Obj) {
@@ -53,8 +53,13 @@ function creatTable(Array) {
         const tdTag = document.createElement("td");
         const tdTag_2 = document.createElement("td");
         thTag.textContent = createHeadingName(element);
-        tdTag.textContent = Obj[element];
-        tdTag_2.textContent = Array[1][element];
+        if (element === "website") {
+            tdTag.appendChild(createLinkIfURL(Obj[element]));
+            tdTag_2.appendChild(createLinkIfURL(Array[1][element]));
+        } else {
+            tdTag.textContent = Obj[element];
+            tdTag_2.textContent = Array[1][element];
+        }
         tableTag.appendChild(trTag);
         trTag.appendChild(thTag);
         trTag.appendChild(tdTag);
@@ -83,4 +88,20 @@ function createHeadingName(source){
     }
 
     return result.join('');
+}
+
+function isURL(str) {
+    const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+    return urlRegex.test(str);
+}
+
+function createLinkIfURL(value) {
+    if (isURL(value)) {
+        const link = document.createElement("a");
+        link.href = value;
+        link.textContent = value;
+        return link;
+    } else {
+        return document.createTextNode(value);
+    }
 }
