@@ -1,39 +1,45 @@
 const inputTag_1 = document.querySelector("#input-company1");
 const inputTag_2 = document.querySelector("#input-company2");
 const inputTag = document.querySelectorAll("input");
-const compareBtn = document.querySelector("button");
-
 const formTag = document.querySelector("form");
-
+const tableTag = document.querySelector("table");
 let companies = [];
 
 window.addEventListener("load", async (event) => {
     let response = await fetch("data.json");
     companies = await response.json();
-    console.log(companies);
-    compareBtn.addEventListener("click", comparison);
     formTag.addEventListener("submit", (e) => {
         e.preventDefault();
         comparison();
     })
   });
 
-
+const checkInputTag_1 = inputTag_1.value.toLowerCase();
+const checkInputTag_2 = inputTag_2.value.toLowerCase();
 
 function findCompany(input) {
-
+    const checkFilter = companies.filter(element => element.name.toLowerCase() === input.value.toLowerCase());
+    console.log(checkFilter);
+    return checkFilter;
     
-    console.log(companies.filter(element => element.name.toLowerCase() === input.value.toLowerCase()));
-    return companies.filter(element => element.name.toLowerCase() === input.value.toLowerCase());
 }
 
 function comparison () {
-    const companInfo = [findCompany(inputTag_1)[0], findCompany(inputTag_2)[0]];
+    const company1 = findCompany(inputTag_1);
+    const company2 = findCompany(inputTag_2);
+    let warning = document.querySelector("p");
+    warning.textContent = '';
+    if(company1.length === 0 || company2.length === 0) {
+        warning.style.textAlign = "center";
+        warning.style.color = "red";
+        warning.textContent = "Please Enter a valide input!";
+        return;
+    }
+
+    const companInfo = [company1[0], company2[0]];
     console.log(companInfo);
     creatTable(companInfo);
 }
-
-const tableTag = document.querySelector("table");
 
 function creatTable(Array) {
     tableTag.innerHTML = '';
@@ -48,14 +54,10 @@ function creatTable(Array) {
         thTag.textContent = element;
         tdTag.textContent = Obj[element];
         tdTag_2.textContent = Array[1][element];
-
         tableTag.appendChild(trTag);
-
         trTag.appendChild(thTag);
-
         trTag.appendChild(tdTag);
         trTag.appendChild(tdTag_2);
     }
-    
-   
 }
+
