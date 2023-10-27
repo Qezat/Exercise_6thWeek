@@ -22,18 +22,8 @@ let companies = [];
 window.addEventListener("load", async (event) => {
     let response = await fetch("data.json");
     companies = await response.json();
-    console.log("Data loaded", companies);
+    compareBtn.addEventListener("click", comparison);
   });
-
-console.log(companies);
-
-
-// const companies = JSON.parse("data.json");
-
-/*
-
-compareBtn.addEventListener("click", comparison);
-
 
 function findCompany(input) {
 
@@ -53,4 +43,3 @@ function comparison () {
     trName.appendChild(tdName2);
 
 }
-*/
