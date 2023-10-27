@@ -39,14 +39,15 @@ const tableTag = document.querySelector("table");
 function creatTable(Array) {
     tableTag.innerHTML = '';
     let Obj = Array[0];
-    console.log(Obj);
+
     for(let element in Obj) {
-        console.log(element);
         const trTag = document.createElement("tr");
+
         const thTag = document.createElement("th");
         const tdTag = document.createElement("td");
         const tdTag_2 = document.createElement("td");
-        thTag.textContent = element;
+
+        thTag.textContent = createHeadingName(element);
         tdTag.textContent = Obj[element];
         tdTag_2.textContent = Array[1][element];
 
@@ -68,4 +69,19 @@ function displayCompanyList(){
 
         ul.appendChild(li);
     });
+}
+
+
+function createHeadingName(source){
+    const result = Array();
+
+    result.push(source[0].toUpperCase());
+    for(let i = 1; i < source.length; i++){
+        if (source[i] === source[i].toUpperCase()){
+            result.push(' ');
+        }
+        result.push(source[i]);
+    }
+
+    return result.join('');
 }
