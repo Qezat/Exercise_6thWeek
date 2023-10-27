@@ -3,6 +3,10 @@ html, body{
     padding: 0;
 }
 
+ul{
+    list-style: square;
+}
+
 table{
     text-align: left;
 }
