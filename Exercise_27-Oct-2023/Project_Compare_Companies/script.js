@@ -71,8 +71,31 @@ function displayCompanyList(){
     const ul = document.querySelector('ul');
     companies.forEach(c => {
         const li = document.createElement('li');
+        li.setAttribute("draggable", "true");
         li.innerHTML = c.name;
         ul.appendChild(li);
+
+        li.addEventListener("dragstart", (e) => {
+            e.dataTransfer.setData('text/plain', c.name);
+        });
+
+        inputTag_1.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const inputValue = e.dataTransfer.getData('text/plain');
+            inputTag_1.value = inputValue;
+        });
+        inputTag_2.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const inputValue = e.dataTransfer.getData('text/plain');
+            inputTag_2.value = inputValue;
+        });
+
+        inputTag_1.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+        inputTag_2.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
     });
 }
 
