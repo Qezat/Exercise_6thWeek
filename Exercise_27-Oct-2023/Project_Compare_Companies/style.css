@@ -87,11 +87,9 @@ th {
     background-color: #f2f2f2;
 }
 
-
-/* Liste öğelerini stillemek için (style.css) */
 ul {
-    list-style: none; /* Liste işaretini kaldırır */
-    padding: 0; /* Öntanımlı padding'i kaldırır */
+    list-style: none; 
+    padding: 0;
 }
 
 
